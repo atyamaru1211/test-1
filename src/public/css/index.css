@@ -1,0 +1,217 @@
+/*全体*/
+.contact-form__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+/*題名*/
+.contact-form__heading {
+    font-weight: 300;
+    color: #8B7969;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 35px;
+}
+
+/*本体*/
+.form {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+}
+
+/*それぞれの題名と記入欄*/
+.form__group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+/*題名*/
+.form__label--item {
+    font-size: 20px;
+    color: #8B7969;
+
+}
+
+/*米印*/
+.form__label--required {
+    color: #ff0000;
+    font-size: 20px;
+}
+
+/*エラー*/
+.form__error {
+    margin: 5px 20px;
+    font-size: 14px;
+    color: #ff0000;
+    text-align: left;
+}
+
+/*記入欄全体*/
+.form__group-content {
+    width: 70%;
+}
+
+/*記入欄*/
+.form__input--text {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.name__input {
+    margin-right: 40px;
+}
+
+/*記入欄の中身*/
+.form__input--text input {
+    width: 100%;
+    margin: 0 20px;
+    padding: 15px;
+    border: none;
+    background-color: #f4f4f4;
+    color: #BEB1A6;
+    height: 30px;
+    appearance: none;
+}
+
+.tel__input {
+    margin-right: 40px;
+}
+
+.form__group--category {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+
+/*種類セレクトボックス*/
+.form__select--category {
+    position: relative;
+    width: 30%;
+    margin-left: 68px;
+}
+
+/*矢印入れたい*/
+.form__select--category::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    border-top: 12px solid #BEB1A6;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 0;
+    pointer-events: none;
+}
+
+/*セレクトボックス*/
+.form__select--category select {
+    padding: 7px 15px;
+    width: 100%;
+    height: 30px;
+    font-size: 12px;
+    border: none;
+    background-color: #F4F4F4;
+    color: #BEB1A6;
+    appearance: none; 
+    opacity: 0.8;
+}
+
+/*記入欄大*/
+.form__input--textarea {
+    width: 94%;
+}
+
+
+.form__input--textarea textarea {
+    width: 100%;
+    margin: 0 20px;
+    padding: 10px;
+    border: none;
+    background-color: #f4f4f4;
+    color: #BEB1A6;
+    appearance: none;
+    resize: none;
+    height: 120px;
+}
+
+/*性別選択全体*/
+.form__input-radio {
+    width: 70%;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+/*それぞれの性別のボタン*/
+.gender__radio {
+    position: relative;
+    display: block;
+    padding-right: 28px;
+    user-select: none;
+}
+
+.gender__radio input {
+    display: none;
+}
+
+/*性別のボタンの●のところ*/
+.gender__radio-mark {
+    display: inline-block;
+    padding: 5px 0 5px 30px;
+    position: relative;
+}
+
+input:checked +.gender__radio-mark::after {
+    opacity: 1;
+}
+
+/*ボタンを押した場合の*/
+.gender__radio-mark::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    border: 1px solid #8B7969;
+    border-radius: 50%;
+}
+
+.gender__radio-mark::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #8B7969;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    opacity: 0;
+}
+
+
+/*電話番号のハイフン*/
+.hyphen {
+    align-items: center;
+    margin-top: 6px;
+}
+
+
+/*確認ボタン*/
+.form__button-submit {
+    background: #82756A;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    width: 15%;
+    font-size: 16px;
+    cursor: pointer;
+}

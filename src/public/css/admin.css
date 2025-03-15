@@ -1,0 +1,290 @@
+/*題名*/
+.admin-form__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.admin-form__heading {
+    font-weight: 300;
+    color: #8B7969;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 35px;
+}
+
+
+/*本体*/
+
+.form {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.form__search {
+    display: flex;
+    margin-bottom: 30px;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form__search-content {
+    margin-left: 25px;
+}
+
+.form__input--text input {
+    width: 350px;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border: 1px solid #E3DED9;
+    background-color: #FBFBFB;
+    color: #beb1a6;
+    font-size: 16px;
+}
+
+/*性別選択*/
+.form__select--gender {
+    position: relative;
+}
+
+.form__select--gender::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    border-top: 16px solid #E0DFDE;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 0;
+    pointer-events: none;
+}
+
+.form__select--gender select {
+    padding: 10px 20px;
+    border: 1px solid #E3DED9;
+    background-color: #F4F4F4;
+    font-size: 17px;
+    color: #8B7969;
+    appearance: none; 
+}
+
+/*カテゴリ選択*/
+.form__select--category {
+    position: relative;
+}
+.form__select--category::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    border-top: 16px solid #E0DFDE;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 0;
+    pointer-events: none;
+}
+
+.form__select--category select {
+    width: 220px;
+    padding: 10px 20px;
+    border: 1px solid #E3DED9;
+    background-color: #F4F4F4;
+    font-size: 17px;
+    color: #8B7969;
+    appearance: none; 
+}
+
+/*日付選択*/
+.form__input--date {
+    position: relative;
+}
+
+.form__input--date::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    border-top: 16px solid #E0DFDE;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 0;
+    pointer-events: none;
+}
+
+.form__input--date input {
+    width: 150px;
+    padding: 10px 10px;
+    border: 1px solid #E3DED9;
+    background-color: #F4F4F4;
+    font-size: 17px;
+    color: #8B7969;
+    appearance: none; 
+    position: relative;
+}
+
+.form__input--date input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+/*検索ボタン*/
+.search__button {
+    margin-left: 25px;
+}
+
+.search__button-submit {
+    padding: 7px 20px;
+    border: 1px solid #8B7969;
+    font-size: 18px;
+    color: #FFFFFF;
+    background-color: #82756A;
+}
+
+/*リセットボタン*/
+.search__reset {
+    margin-left: 25px;
+}
+
+.search__reset-button {
+    padding: 9px 20px;
+    border: 1px solid #D9C6B5;
+    color: #FFFFFF;
+    background-color: #D9C6B5;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/*エクスポート*/
+.export-button {
+    margin: 25px;
+}
+
+.export-button-submit {
+    padding: 8px 20px;
+    border: none;
+    background-color: #E1DBD6;
+    color: #8B7969;
+}
+
+/*ページネーション*/
+
+
+/*一覧表*/
+.admin-table {
+    margin: 25px;
+    width: 94%;
+    text-align: left;
+}
+
+.admin-table__inner {
+    width: 100%;
+}
+
+.admin-table__row {
+    display: flex;
+    border-bottom: 1px solid #E0DFDE;
+    width: 100%;
+}
+
+
+.admin-table__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 30px;
+    width: 100%;
+    color: #FFFFFF;
+    background: #8B7969;
+    font-weight: bold;
+}
+
+.admin-table__header-span {
+    margin-right: 80px;
+}
+
+.admin-table__header-span:last-child {
+    opacity: 0;
+}
+
+.content-table__name {
+    margin-right: 65px;
+    padding: 20px 30px;
+    color: #8B7969;
+}
+
+.space {
+    padding: 5px;
+}
+
+.content-table__gender {
+    margin-right: 95px;
+    padding: 20px 30px;
+    color: #8B7969;
+}
+
+.content-table__email {
+    margin-right: 65px;
+    padding: 20px 30px;
+    color: #8B7969;
+}
+
+.content-table__category {
+    margin-right: 150px;
+    padding: 20px 30px;
+    color: #8B7969;
+}
+
+.content-table__detail {
+    margin-top: 15px;
+} 
+
+.detail-button {
+    padding: 5px 15px;
+    /*background-color: #F4F4F44D 0.3;*/
+    color: #D9C6B5;
+    /*border: 1px solid #D9C6B5 0.6;*/
+    border: none;
+}
+
+
+
+
+
+.customer-admin__reset-button {
+    background-color: #6c757d;
+}
+
+.customer-admin__export-button {
+    display: inline-block;
+    padding: 8px 16px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.customer-admin__table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+
+.customer-admin__table-header,
+.customer-admin__table-cell {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.customer-admin__detail-link {
+    color: blue;
+    text-decoration: none;
+}
+
+.customer-admin__pagination {
+    margin-top: 20px;
+}
