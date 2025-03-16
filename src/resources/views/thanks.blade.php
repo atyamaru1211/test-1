@@ -19,7 +19,7 @@
                 <h2>お問い合わせありがとうございました</h2>
             </div>
             <div class="thanks__button">
-                <a class="thanks__button-home" href="/contact">HOME</a>
+                <a class="thanks__button-home" href="{{ route('contacts.index') }}">HOME</a>
             </div>
             <p class="thanks__background">Thank you</p>
         </div>

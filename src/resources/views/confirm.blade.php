@@ -61,7 +61,8 @@
                         <tr class="confirm-table__row">
                             <th class="confirm-table__header"></th>
                             <td class="confirm-table__text">
-                                <input type="text" name="category" value="{{ $contact['category'] }}" readonly/>
+                                <input type="text" value="{{ $contact['category_name'] }}" readonly/>
+                                <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}" readonly/>
                             </td>
                         </tr>
                         <tr class="confirm-table__row">

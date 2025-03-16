@@ -162,16 +162,19 @@
                         <span class="form__label--required">※</span>
                     </div>
                     <div class="form__select--category">
-                        <select name="category">
+                        <select name="category_id">
                             <option value="">選択してください</option>
-                            <option value="商品のお届けについて" {{ ($contact['category'] ?? old('category')) == '商品のお届けについて' ? 'selected' : '' }}>商品のお届けについて</option>
-                            <option value="商品の交換について" {{ ($contact['category'] ?? old('category')) == '商品の交換について' ? 'selected' : '' }}>商品の交換について</option>
-                            <option value="商品トラブル" {{ ($contact['category'] ?? old('category')) == '商品トラブル' ? 'selected' : '' }}>商品トラブル</option>
-                            <option value="ショップへのお問い合わせ" {{ ($contact['category'] ?? old('category')) == 'ショップへのお問い合わせ' ? 'selected' : '' }}>ショップへのお問い合わせ</option>
-                            <option value="その他" {{ ($contact['category'] ?? old('category')) == 'その他' ? 'selected' : '' }}>その他</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category['id'] }}" {{ ($contact['category_id'] ?? old('category_id')) == $category->id ? 'selected' : '' }}>{{ $category['content'] }}</option>
+                            @endforeach
+                            <!--<option value="商品のお届けについて" {{ ($contact['category_id'] ?? old('category_id')) == '商品のお届けについて' ? 'selected' : '' }}>商品のお届けについて</option>
+                            <option value="商品の交換について" {{ ($contact['category_id'] ?? old('category_id')) == '商品の交換について' ? 'selected' : '' }}>商品の交換について</option>
+                            <option value="商品トラブル" {{ ($contact['category_id'] ?? old('category_id')) == '商品トラブル' ? 'selected' : '' }}>商品トラブル</option>
+                            <option value="ショップへのお問い合わせ" {{ ($contact['category_id'] ?? old('category_id')) == 'ショップへのお問い合わせ' ? 'selected' : '' }}>ショップへのお問い合わせ</option>
+                            <option value="その他" {{ ($contact['category_id'] ?? old('category_id')) == 'その他' ? 'selected' : '' }}>その他</option>-->
                         </select>
                         <div class="form__error">
-                            @error('category')
+                            @error('category_id')
                             {{ $message }}
                             @enderror
                         </div>

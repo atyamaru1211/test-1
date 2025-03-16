@@ -6,9 +6,10 @@
 
 
 @section('header')
-            <a class="header__link" href="/logout">
-                logout
-            </a><!--ここ、もしかしたらbuttonかも。-->
+            <form class="form" action="logout" method="post">
+                @csrf
+                <button class="header-nav__button">logout</button>
+            </form>
 @endsection
 
 @section('content')

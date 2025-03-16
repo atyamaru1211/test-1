@@ -28,7 +28,7 @@ body {
     text-align: center;
   }
   
-  .header__link {
+  .header-nav__button { /*これここでいいのかな？でもposition:relativeが、、*/
     padding: 5px 15px;
     border: 1px solid #D9C6B5;
     color: #D9C6B5;
