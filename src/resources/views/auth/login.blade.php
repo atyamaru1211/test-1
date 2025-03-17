@@ -15,7 +15,7 @@
             <div class="login-form__heading">
                 <span>Login</span>
             </div>
-            <form class="form" action="/login" method="post">
+            <form class="form" action="{{ route('login') }}" method="post">
                 @csrf
                 <div class="form__group">
                     <p class="form__group--item">メールアドレス</p>
@@ -26,7 +26,7 @@
                     <input class="form__group-input" type="password" name="password" placeholder="例: coachtech1106"/>
                 </div>
                 <div class="form__button">
-                    <button class="form__button-submit">ログイン</button>
+                    <button class="form__button-submit" type="submit">ログイン</button>
                 </div>
             </form>
         </div>

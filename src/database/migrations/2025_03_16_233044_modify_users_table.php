@@ -14,7 +14,13 @@ class ModifyUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['two_factor_secret', 'two_factor_recovery_codes', 'two_factor_confirmed_at']);
+            $table->dropColumn([
+                'email_verified_at',
+                'two_factor_secret',
+                'two_factor_recovery_codes', 
+                'two_factor_confirmed_at',
+                'remember_token'
+            ]);
 
         });
     }

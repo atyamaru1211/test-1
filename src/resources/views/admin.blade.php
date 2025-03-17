@@ -6,10 +6,12 @@
 
 
 @section('header')
-            <form class="form" action="logout" method="post">
+            @if (Auth::check())
+            <form class="form" action="/logout" method="post">
                 @csrf
-                <button class="header-nav__button">logout</button>
+                <button class="header-nav__button" type="submit">logout</button>
             </form>
+            @endif
 @endsection
 
 @section('content')
@@ -18,64 +20,65 @@
                 <span>Admin</span>
             </div>
 
-            <form class="form">
+            <form class="form" action="/search" method="get">
+                @csrf
                 <div class="form__search">
                     <div class="form__search-content">
                         <div class="form__input--text">
-                            <input type="text" name="search-name-email" placeholder="名前やメールアドレスを入力してください">
+                            <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ $keyword ?? '' }}">
                         </div>
                     </div>
                     <div class="form__search-content">
                         <div class="form__select--gender">
                             <select name="gender">
-                                <option>性別</option>
-                                <option value="全て">全て</option>
-                                <option value="男性">男性</option>
-                                <option value="女性">女性</option>
-                                <option value="その他">その他</option>
+                                <option value="">性別</option>
+                                <option value="全て" {{request()->gender ==='全て'? "selected" : "";}}>全て</option>
+                                <!--<option value="全て" @if(old('gender') === '全て') selected @endif>全て</option>-->
+                                @foreach (['1' => '男性', '2' => '女性', '3' => 'その他'] as $value => $label)
+                                    <option value="{{ $value }}" @if(old('gender', $gender ?? '') === (string)$value) selected @endif>{{ $label }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form__search-content">
                         <div class="form__select--category">
-                            <select name="category">
+                            <select name="category_id">
                                 <option value="">お問い合わせの種類</option>
-                                <option value="商品のお届けについて">商品のお届けについて</option>
-                                <option value="商品の交換について">商品の交換について</option>
-                                <option value="商品トラブル">商品トラブル</option>
-                                <option value="ショップへのお問い合わせ">ショップへのお問い合わせ</option>
-                                <option value="その他">その他</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category['id'] }}" {{ (string)($category_id ?? '') === (string)$category['id'] ? 'selected' : '' }}>{{ $category['content'] }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form__search-content">
                         <div class="form__input--date">
-                            <input type="date" name="date">
+                            <input type="date" name="date" value="{{ $date ?? '' }}">
                         </div>
                     </div>
                     <div class="search__button">
                         <button class="search__button-submit" type="submit">検索</button>
                     </div>
                     <div class="search__reset">
-                        <a class="search__reset-button" href="/">リセット</a>
+                        <a class="search__reset-button" href="/reset">リセット</a>
                     </div>
                 </div>
             </form>
                 <!--エクスポートと、ページネーション-->
             <div>
-                <div class="export">
+                <div class="buttons">
                     <div class="export-button">
                         <button class="export-button-submit" type="submit">
                             エクスポート
                         </button>
                     </div>
-                </div>
-                <div class="paginate">
-                    <!---->
+                    <div class="paginate-button">
+                        {{ $contacts->links() }}
+                    </div>
+
                 </div>
             </div>
-                <!--一覧表-->
 
+                <!--一覧表-->
             <div class="admin-table">
                 <table class="admin-table__inner">
                     <tr class="admin-table__row">
@@ -87,39 +90,36 @@
                             <span class="admin-table__header-span">詳細</span>
                         </th>
                     </tr>
-                    <!--ここにforeach(-as-)が入ると予想-->
+                    @foreach($contacts as $contact)
                     <tr class="admin-table__row">
                         <!--<form class="content-form">-->
                             <td class="content-table__name">
-                                山田
+                                {{ $contact['last-name'] }}
                                 <span class="space"></span>
-                                <span class="first-name">太郎</span>
+                                <span class="first-name">{{ $contact['first-name'] }}</span>
                             </td>
                             <td class="content-table__gender">
-                                <input type="hidden" value="性別"/>
-                                男性
+                                <input type="hidden" value="{{ $contact['gender'] }}"/>
                                 <?php
-                                /*
-                                if (contact['gender'] == '1'){
+                                if ($contact['gender'] == '1'){
                                     echo '男性';
-                                } elseif (contact['gender'] == '2') {
+                                } elseif ($contact['gender'] == '2') {
                                     echo '女性';
                                 } else {
                                     echo 'その他';
-                                } */?>
+                                } ?>
                             </td>
                             <td class="content-table__email">
-                                sample@email.com
-                                <!---->
+                                {{ $contact['email'] }}
                             </td>
                             <td class="content-table__category">
-                                商品の交換について
-                                <!---->
+                                {{ $contact['category']['content']}}
                             </td>
                             <td class="content-table__detail">
                                 <button class="detail-button" type="button" wire:click="openModal()">詳細</button>
                             </td>
                     </tr>
+                    @endforeach
                 </table>
             </div>
         </div>

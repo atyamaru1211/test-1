@@ -159,8 +159,13 @@
 }
 
 /*エクスポート*/
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
 .export-button {
-    margin: 25px;
+    margin: 0 25px;
 }
 
 .export-button-submit {
@@ -171,6 +176,60 @@
 }
 
 /*ページネーション*/
+.paginate-button {
+    margin: 0 50px;
+}
+
+.paginate-button nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.paginate-button .page-item {
+    margin: 0;
+    border: 1px solid #E0DFDE;
+    border-right: none;
+}
+
+.paginate-button .page-item:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+.paginate-button .page-item:last-child {
+    border-right: 1px solid #E0DFDE;
+    border-radius: 0 5px 5px 0;
+}
+
+.paginate-button .page-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0;
+    font-size: 20px;
+    color: #8B7969;
+    text-decoration: none;
+    border: none;
+}
+
+.paginate-button .page-item:first-child .page-link,
+.paginate-button .page-item:last-child .page-link {
+    font-size: 35px;
+    min-width: 40px;    
+}
+
+.paginate-button .page-item.active .page-link {
+    background-color: #8B7969;
+    color: #FFFFFF;
+}
+
+.paginate-button .page-item.disabled .page-link {
+    pointer-events: none;
+}
+
 
 
 /*一覧表*/
