@@ -4,7 +4,13 @@ use App\Providers\RouteServiceProvider;
 use Laravel\Fortify\Features;
 
 return [
+    'logout' => [
+        'redirect' => '/login',
+    ],
 
+    'actions' => [
+        'AttemptToAuthenticate' => App\Actions\Fortify\AttemptToAuthenticate::class,
+    ],
     /*
     |--------------------------------------------------------------------------
     | Fortify Guard
@@ -74,7 +80,7 @@ return [
     |
     */
 
-    'home' => RouteServiceProvider::HOME,
+    'home' => '/login',//RouteServiceProvider::HOME,
 
     /*
     |--------------------------------------------------------------------------

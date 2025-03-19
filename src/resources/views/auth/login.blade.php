@@ -19,11 +19,21 @@
                 @csrf
                 <div class="form__group">
                     <p class="form__group--item">メールアドレス</p>
-                    <input class="form__group-input" type="email" name="email" placeholder="例: test@example.com" value="{{ old('email') }}"/>
+                    <input class="form__group-input" type="text" name="email" placeholder="例: test@example.com" value="{{ old('email') }}"/>
+                    <div class="error">
+                        @error('email')
+                            {{ $message }}
+                        @enderror
+                    </div>
                 </div>
                 <div class="form__group">
                     <p class="form__group--item">パスワード</p>
                     <input class="form__group-input" type="password" name="password" placeholder="例: coachtech1106"/>
+                    <div class="error">
+                        @error('password')
+                            {{ $message }}
+                        @enderror
+                    </div>
                 </div>
                 <div class="form__button">
                     <button class="form__button-submit" type="submit">ログイン</button>

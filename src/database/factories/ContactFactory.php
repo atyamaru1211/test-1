@@ -25,8 +25,9 @@ class ContactFactory extends Factory
             'email' => $this->faker->safeEmail(),
             'tel' => $this->faker->regexify('[0-9]{10,11}'),
             'address' => $this->faker->prefecture() . $this->faker->city() . $this->faker->streetAddress(),
+            'building' => $this->faker->secondaryAddress(),
             'category_id' => $this->faker->numberBetween(1,5),
-            'detail' => $this->faker->secondaryAddress(),
+            'detail' => $this->faker->realText(120),
         ];
     }
 }

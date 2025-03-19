@@ -9,7 +9,7 @@
             @if (Auth::check())
             <form class="form" action="/logout" method="post">
                 @csrf
-                <button class="header-nav__button" type="submit">logout</button>
+                <button class="header-nav__button">logout</button>
             </form>
             @endif
 @endsection
@@ -66,11 +66,17 @@
                 <!--エクスポートと、ページネーション-->
             <div>
                 <div class="buttons">
-                    <div class="export-button">
-                        <button class="export-button-submit" type="submit">
-                            エクスポート
-                        </button>
-                    </div>
+                        <form class="export-button" action="/export" method="get">
+                            @csrf
+                            <button class="export-button-submit" type="submit">
+                                <input type="hidden" name="keyword" value="{{ $keyword ?? '' }}"/>
+                                <input type="hidden" name="gender" valu="{{ $gender ?? '' }}"/>
+                                <input type="hidden" name="category_id" value="{{ $category_id ?? '' }}"/>
+                                <input type="hidden" name="date" value="{{ $date ?? '' }}"/>
+                                エクスポート
+                            </button>
+                        </form>
+
                     <div class="paginate-button">
                         {{ $contacts->links() }}
                     </div>
@@ -92,32 +98,31 @@
                     </tr>
                     @foreach($contacts as $contact)
                     <tr class="admin-table__row">
-                        <!--<form class="content-form">-->
-                            <td class="content-table__name">
-                                {{ $contact['last-name'] }}
-                                <span class="space"></span>
-                                <span class="first-name">{{ $contact['first-name'] }}</span>
-                            </td>
-                            <td class="content-table__gender">
-                                <input type="hidden" value="{{ $contact['gender'] }}"/>
-                                <?php
-                                if ($contact['gender'] == '1'){
-                                    echo '男性';
-                                } elseif ($contact['gender'] == '2') {
-                                    echo '女性';
-                                } else {
-                                    echo 'その他';
-                                } ?>
-                            </td>
-                            <td class="content-table__email">
-                                {{ $contact['email'] }}
-                            </td>
-                            <td class="content-table__category">
-                                {{ $contact['category']['content']}}
-                            </td>
-                            <td class="content-table__detail">
-                                <button class="detail-button" type="button" wire:click="openModal()">詳細</button>
-                            </td>
+                        <td class="content-table__name">
+                            {{ $contact['last-name'] }}
+                            <span class="space"></span>
+                            <span class="first-name">{{ $contact['first-name'] }}</span>
+                        </td>
+                        <td class="content-table__gender">
+                        <input type="hidden" value="{{ $contact['gender'] }}"/>
+                            <?php
+                            if ($contact['gender'] == '1'){
+                                echo '男性';
+                            } elseif ($contact['gender'] == '2') {
+                                echo '女性';
+                            } else {
+                                echo 'その他';
+                            } ?>
+                        </td>
+                        <td class="content-table__email">
+                            {{ $contact['email'] }}
+                        </td>
+                        <td class="content-table__category">
+                            {{ $contact['category']['content']}}
+                        </td>
+                        <td class="content-table__detail">
+                            @livewire('modal', ['contact' => $contact], key($contact['id']))
+                        </td>
                     </tr>
                     @endforeach
                 </table>

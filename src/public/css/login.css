@@ -58,3 +58,7 @@ main {
     color: #FFFFFF;
     cursor: pointer;
 }
+
+.error {
+    color: #ff0000;
+  }

@@ -56,4 +56,11 @@ class ContactController extends Controller
         session()->forget('contact');
         return view('thanks');
     }
+
+    public function destroy(Request $request)
+    {
+        $contact = Contact::find($request->id);
+        $contact->delete();
+        return redirect('/admin');
+    }
 }
