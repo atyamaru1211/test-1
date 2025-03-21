@@ -10,8 +10,8 @@ class Contact extends Model
     use HasFactory;
 
     protected $fillable = [
-        'last-name',
-        'first-name',
+        'last_name',
+        'first_name',
         'gender',
         'email',
         'tel',
@@ -37,8 +37,8 @@ class Contact extends Model
     public function scopeKeywordSearch($query, $keyword)
     {
         if (!empty($keyword)) {
-            $query->where('last-name', 'like' ,'%' . $keyword . '%')
-                ->orWhere('first-name', 'like', '%' . $keyword . '%')
+            $query->where('last_name', 'like' ,'%' . $keyword . '%')
+                ->orWhere('first_name', 'like', '%' . $keyword . '%')
                 ->orWhere('email', 'like', '%' . $keyword . '%');
         }
     }

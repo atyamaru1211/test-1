@@ -19,8 +19,8 @@ class ContactFactory extends Factory
     public function definition()
     {
         return [
-            'last-name' => $this->faker->lastName(),
-            'first-name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'first_name' => $this->faker->firstName(),
             'gender' => $this->faker->numberBetween(1,3),
             'email' => $this->faker->safeEmail(),
             'tel' => $this->faker->regexify('[0-9]{10,11}'),

@@ -31,7 +31,7 @@ class ContactController extends Controller
     public function confirm(ContactRequest $request)
     {
         $tel = $request->input('tel-1') . $request->input('tel-2') . $request->input('tel-3');
-        $contact = $request->only(['last-name', 'first-name','gender','email','address','building','category_id','detail']); 
+        $contact = $request->only(['last_name', 'first_name','gender','email','address','building','category_id','detail']); 
         $contact['tel'] = $tel;
 
         // category_id に対応するカテゴリ名を取得し、category_name として $contact 配列に追加
@@ -50,7 +50,7 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        $contact = $request->only(['last-name', 'first-name','gender','email','tel','address','building','category_id', 'detail']);
+        $contact = $request->only(['last_name', 'first_name','gender','email','tel','address','building','category_id', 'detail']);
         Contact::create($contact);
         //
         session()->forget('contact');

@@ -11,9 +11,9 @@
                 <tr class="modal__row">
                     <th class="modal__header">お名前</th>
                     <td class="modal__item">
-                        {{ $contact['last-name']}}
+                        {{ $contact['last_name']}}
                         <span class="space"></span>
-                        <span class="first-name">{{ $contact['first-name'] }}</span>
+                        <span class="first_name">{{ $contact['first_name'] }}</span>
                     </td>
                 </tr>
                 <tr class="modal__row">

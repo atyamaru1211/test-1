@@ -66,13 +66,13 @@
                 <!--エクスポートと、ページネーション-->
             <div>
                 <div class="buttons">
-                        <form class="export-button" action="/export" method="get">
+                        <form class="export-button" action="{{ route('admin.export') }}" method="post">
                             @csrf
                             <button class="export-button-submit" type="submit">
-                                <input type="hidden" name="keyword" value="{{ $keyword ?? '' }}"/>
-                                <input type="hidden" name="gender" valu="{{ $gender ?? '' }}"/>
-                                <input type="hidden" name="category_id" value="{{ $category_id ?? '' }}"/>
-                                <input type="hidden" name="date" value="{{ $date ?? '' }}"/>
+                            <input type="hidden" name="keyword" value="{{ $keyword ?? '' }}">
+                            <input type="hidden" name="gender" value="{{ $gender ?? '' }}">
+                            <input type="hidden" name="category_id" value="{{ $category_id ?? '' }}">
+                            <input type="hidden" name="date" value="{{ $date ?? '' }}">
                                 エクスポート
                             </button>
                         </form>
@@ -99,9 +99,9 @@
                     @foreach($contacts as $contact)
                     <tr class="admin-table__row">
                         <td class="content-table__name">
-                            {{ $contact['last-name'] }}
+                            {{ $contact['last_name'] }}
                             <span class="space"></span>
-                            <span class="first-name">{{ $contact['first-name'] }}</span>
+                            <span class="first_name">{{ $contact['first_name'] }}</span>
                         </td>
                         <td class="content-table__gender">
                         <input type="hidden" value="{{ $contact['gender'] }}"/>

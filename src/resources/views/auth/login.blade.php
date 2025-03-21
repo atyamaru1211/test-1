@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-            <a class="header__link" href="/register">
+            <a class="header-nav__button" href="/register">
                 register
             </a>
 @endsection

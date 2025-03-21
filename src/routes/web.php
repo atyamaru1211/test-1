@@ -29,4 +29,4 @@ Route::get('/search', [AuthController::class, 'search']);
 //リセット
 Route::get('/reset', [AuthController::class, 'reset']);
 //エクスポート
-Route::get('/export', [AuthController::class, 'export'])->middleware('auth');
+Route::post('/export', [AuthController::class, 'export'])->middleware('auth')->name('admin.export');

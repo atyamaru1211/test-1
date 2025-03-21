@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\StreamedResponse;
+//use Symfony\Component\HttpFoundation\StreamedResponse;
 
 
 class AuthController extends Controller
@@ -50,7 +50,7 @@ class AuthController extends Controller
         return redirect('/login');
     }
 
-    public function export(Request $request): StreamedResponse
+    public function export(Request $request)//: StreamedResponse
     {
         $contacts = Contact::with('category')
             ->CategorySearch($request->category_id)
@@ -59,17 +59,16 @@ class AuthController extends Controller
             ->DateSearch($request->date)
             ->get();
 
-        $headers = [
-            'Content-Type' => 'text/csv; charset=SJIS',
-            'COntent-Disposition' => 'attachment; filename="contacts.csv"',
-        ];
+        $head = ['お名前', '性別', 'メールアドレス', '電話番号', '住所', '建物名', 'お問い合わせの種類', 'お問い合わせ内容'];
 
-        $callback = function () use ($contacts) {
-            $file = fopen('php://output', 'w');
-            fputcsv($file, ['お名前', '性別', 'メールアドレス', '電話番号', '住所', '建物名', 'お問い合わせの種類', 'お問い合わせ内容']);
+        $f = fopen('contacts.csv', 'w');
+        if ($f) {
+            fprintf($f, "\xEF\xBB\xBF");
+
+            fputcsv($f, $head);
 
             foreach ($contacts as $contact) {
-                fputcsv($file, [
+                $row = [
                     $contact->last_name . ' ' . $contact->first_name,
                     $contact->gender == 1 ? '男性' : ($contact->gender == 2 ? '女性' : 'その他'),
                     $contact->email,
@@ -78,12 +77,21 @@ class AuthController extends Controller
                     $contact->building,
                     $contact->category->content,
                     $contact->detail,
-                ]);
+                ];
+                fputcsv($f, $row);
             }
-            fclose($file);
-        };
+            fclose($f);
 
-        return new StreamedResponse($callback, 200, $headers);
+            header("COntent-Type: application/octet-stream");
+            header('Content-Length: ' . filesize('contacts.csv'));
+            header('Content-Disposition: attachment; filename=contacts.csv');
+            readfile('contacts.csv');
+
+            unlink('contacts.csv');
+        }
+
+        return redirect('/admin');
+
     }
 
 }

@@ -171,7 +171,7 @@
 .export-button-submit {
     padding: 8px 20px;
     border: none;
-    background-color: #E1DBD6;
+    background-color: #E1DBD699;
     color: #8B7969;
 }
 
@@ -241,6 +241,8 @@
 
 .admin-table__inner {
     width: 100%;
+    table-layout: fixed;
+    font-size: 17px;
 }
 
 .admin-table__row {
@@ -252,63 +254,83 @@
 
 .admin-table__header {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: flex-start;*/
     padding: 12px 30px;
     width: 100%;
     color: #FFFFFF;
-    background: #8B7969;
+    background-color: #8B7969;
     font-weight: bold;
+    /**/white-space: nowrap;
 }
 
 .admin-table__header-span {
-    margin-right: 80px;
+    /**/text-align: left;
+    /*margin-right: 60px;*/
+    flex-basis: 16%;
+}
+
+.admin-table__header-span:nth-child(2) {
+    flex-basis: 10%;
+}
+
+.admin-table__header-span:nth-child(3) {
+    flex-basis: 37%;
+}
+
+.admin-table__header-span:nth-child(4) {
+    flex-basis: 25%;
+}
+
+.admin-table__header-span:nth-child(5) {
+    flex-basis: 15%;
 }
 
 .admin-table__header-span:last-child {
-    opacity: 0;
+    display: none;
+}
+
+.content-table__name,
+.content-table__gender,
+.content-table__email,
+.content-table__category,
+.content-table__detail {
+    display: flex;
+    padding: 18px 30px;
+    color: #8B7969;
+    white-space: nowrap;
+    text-align: left;
 }
 
 .content-table__name {
-    margin-right: 65px;
-    padding: 20px 30px;
-    color: #8B7969;
+    flex-basis: 15%;
+}
+
+.content-table__gender {
+    flex-basis: 10%;
+}
+
+.content-table__email {
+    flex-basis: 35%;
+}
+
+.content-table__category {
+    flex-basis: 28%;
+}
+
+.content-table__detail {
+    flex-basis: 5%;
 }
 
 .space {
     padding: 5px;
 }
 
-.content-table__gender {
-    margin-right: 95px;
-    padding: 20px 30px;
-    color: #8B7969;
-}
-
-.content-table__email {
-    margin-right: 65px;
-    padding: 20px 30px;
-    color: #8B7969;
-}
-
-.content-table__category {
-    margin-right: 150px;
-    padding: 20px 30px;
-    color: #8B7969;
-}
-
-.content-table__detail {
-    margin-top: 15px;
-} 
-
 .detail-button {
     padding: 5px 15px;
-    /*background-color: #F4F4F44D 0.3;*/
     color: #D9C6B5;
-    /*border: 1px solid #D9C6B5 0.6;*/
-    border: none;
+    border: 1px solid #D9C6B599;
+    background-color: #F4F4F44D;
 }
-
-
 
 
 
