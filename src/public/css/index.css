@@ -1,11 +1,9 @@
-/*全体*/
 .contact-form__content {
     margin: 0 auto;
     padding: 30px 15px;
     max-width: 1230px;
 }
 
-/*題名*/
 .contact-form__heading {
     font-weight: 300;
     color: #8B7969;
@@ -14,34 +12,29 @@
     font-size: 35px;
 }
 
-/*本体*/
 .form {
     margin: 0 auto;
     width: 70%;
     text-align: center;
 }
 
-/*それぞれの題名と記入欄*/
 .form__group {
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
 }
 
-/*題名*/
 .form__label--item {
     font-size: 20px;
     color: #8B7969;
 
 }
 
-/*米印*/
 .form__label--required {
     color: #ff0000;
     font-size: 20px;
 }
 
-/*エラー*/
 .form__error {
     margin: 5px 20px;
     font-size: 14px;
@@ -49,12 +42,10 @@
     text-align: left;
 }
 
-/*記入欄全体*/
 .form__group-content {
     width: 70%;
 }
 
-/*記入欄*/
 .form__input--text {
     width: 100%;
     display: flex;
@@ -65,7 +56,6 @@
     margin-right: 40px;
 }
 
-/*記入欄の中身*/
 .form__input--text input {
     width: 100%;
     margin: 0 20px;
@@ -87,14 +77,12 @@
 }
 
 
-/*種類セレクトボックス*/
 .form__select--category {
     position: relative;
     width: 30%;
     margin-left: 68px;
 }
 
-/*矢印入れたい*/
 .form__select--category::after {
     content: "";
     position: absolute;
@@ -107,7 +95,6 @@
     pointer-events: none;
 }
 
-/*セレクトボックス*/
 .form__select--category select {
     padding: 7px 15px;
     width: 100%;
@@ -120,7 +107,6 @@
     opacity: 0.8;
 }
 
-/*記入欄大*/
 .form__input--textarea {
     width: 94%;
 }
@@ -138,7 +124,6 @@
     height: 120px;
 }
 
-/*性別選択全体*/
 .form__input-radio {
     width: 70%;
     margin: 0 20px;
@@ -146,7 +131,6 @@
     align-items: center;
 }
 
-/*それぞれの性別のボタン*/
 .gender__radio {
     position: relative;
     display: block;
@@ -158,7 +142,6 @@
     display: none;
 }
 
-/*性別のボタンの●のところ*/
 .gender__radio-mark {
     display: inline-block;
     padding: 5px 0 5px 30px;
@@ -169,7 +152,6 @@ input:checked +.gender__radio-mark::after {
     opacity: 1;
 }
 
-/*ボタンを押した場合の*/
 .gender__radio-mark::before {
     content: '';
     display: block;
@@ -198,14 +180,12 @@ input:checked +.gender__radio-mark::after {
 }
 
 
-/*電話番号のハイフン*/
 .hyphen {
     align-items: center;
     margin-top: 6px;
 }
 
 
-/*確認ボタン*/
 .form__button-submit {
     background: #82756A;
     color: white;

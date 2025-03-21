@@ -26,7 +26,6 @@ class Contact extends Model
         return $this->belongsTo(Category::class);
     }
 
-    //検索
     public function scopeCategorySearch($query, $category_id)
     {
         if (!empty($category_id)) {

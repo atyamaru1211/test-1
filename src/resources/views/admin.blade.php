@@ -33,7 +33,6 @@
                             <select name="gender">
                                 <option value="">性別</option>
                                 <option value="全て" {{request()->gender ==='全て'? "selected" : "";}}>全て</option>
-                                <!--<option value="全て" @if(old('gender') === '全て') selected @endif>全て</option>-->
                                 @foreach (['1' => '男性', '2' => '女性', '3' => 'その他'] as $value => $label)
                                     <option value="{{ $value }}" @if(old('gender', $gender ?? '') === (string)$value) selected @endif>{{ $label }}</option>
                                 @endforeach
