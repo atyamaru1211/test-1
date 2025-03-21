@@ -254,18 +254,16 @@
 
 .admin-table__header {
     display: flex;
-    /*justify-content: flex-start;*/
     padding: 12px 30px;
     width: 100%;
     color: #FFFFFF;
     background-color: #8B7969;
     font-weight: bold;
-    /**/white-space: nowrap;
+    white-space: nowrap;
 }
 
 .admin-table__header-span {
-    /**/text-align: left;
-    /*margin-right: 60px;*/
+    text-align: left;
     flex-basis: 16%;
 }
 
@@ -414,8 +412,10 @@
 
 .modal__table {
     width: 80%;
-    margin: 80px auto;/*結構広くした*/
+    margin: 80px auto;
+    margin-left: 50px;
     margin-bottom: 20px;
+    table-layout: fixed;
 }
 
 .modal__row {
@@ -433,7 +433,9 @@
 }
 
 .modal__item {
-    width: 100%;
+    width: 70%;
+    padding-left: 40px;
+    white-space: normal;
 }
 
 .delete__form {

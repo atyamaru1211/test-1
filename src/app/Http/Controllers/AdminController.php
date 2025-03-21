@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 //use Symfony\Component\HttpFoundation\StreamedResponse;
 
 
-class AuthController extends Controller
+class AdminController extends Controller
 {
     public function index(Request $request) 
     {
